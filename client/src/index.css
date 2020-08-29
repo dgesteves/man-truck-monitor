@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.input::placeholder {
+    color: #000;
+    font-size: 12px;
+}
+
+.option:hover {
+    color: #2998A3;
+}
+
+.button {
+    background-color: #2998A3
+}
+
+.button:hover {
+    background-color: #1F838D;
+    cursor: pointer;
+}
+
+.button:disabled {
+    background-color: #5e9499;
+    pointer-events: none;
+}
+
+.dropdown:hover{
+    cursor: pointer;
+}
+
+.dropdown[data-disabled="true"]{
+    pointer-events: none;
+}
