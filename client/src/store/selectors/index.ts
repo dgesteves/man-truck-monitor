@@ -1,7 +1,7 @@
 import { AppCombinedState } from '../types';
 
 export const getIsLightTheme = (state: AppCombinedState) =>
-  state.map.isLightTheme;
+  state.nav.isLightTheme;
 
 export const getPlaces = (state: AppCombinedState) => state.map.places;
 

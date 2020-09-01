@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-  fetchCurrentLocation,
-  fetchPathLocations,
-  fetchStartLocation,
-} from '../../../store/actions';
-import { useDispatch } from 'react-redux';
 import { inputStyles } from './styles';
 import { AsyncSearchProps } from '../../../types';
 
-function AsyncSearch({ placeholder }: AsyncSearchProps) {
+function AsyncSearch({ placeholder, onDebounceChange }: AsyncSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [debounceTerm, setDebounceTerm] = useState(searchTerm);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const timeoutID = setTimeout(() => {
@@ -25,11 +18,9 @@ function AsyncSearch({ placeholder }: AsyncSearchProps) {
 
   useEffect(() => {
     if (debounceTerm) {
-      dispatch(fetchCurrentLocation(debounceTerm));
-      dispatch(fetchStartLocation(debounceTerm));
-      dispatch(fetchPathLocations(debounceTerm));
+      onDebounceChange(debounceTerm);
     }
-  }, [debounceTerm, dispatch]);
+  }, [debounceTerm, onDebounceChange]);
 
   return (
     <input

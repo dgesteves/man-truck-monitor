@@ -1,25 +1,23 @@
 import React from 'react';
 import buttonStyles from './styles';
-import { setIsLightTheme } from '../../../store/actions';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentLocation, getIsLightTheme } from '../../../store/selectors';
-import { DARK, LIGHT } from '../../../constants';
+import { useSelector } from 'react-redux';
+import { getCurrentLocation } from '../../../store/selectors';
+import { ButtonProps } from '../../../types';
 
 const styles = buttonStyles;
 
-function Button() {
-  const isLightTheme = useSelector(getIsLightTheme);
+function Button({ text, onClick }: ButtonProps) {
   const currentLocation = useSelector(getCurrentLocation);
-  const dispatch = useDispatch();
 
   return (
     <button
+      data-testid="my-testId"
       disabled={!currentLocation}
       className="button"
-      onClick={() => dispatch(setIsLightTheme(!isLightTheme))}
+      onClick={onClick}
       style={styles}
     >
-      {isLightTheme ? DARK : LIGHT}
+      {text}
     </button>
   );
 }

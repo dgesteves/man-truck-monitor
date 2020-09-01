@@ -3,18 +3,16 @@ import arrow from '../../../assets/arrow-down.png';
 import { DropdownProps, Item } from '../../../types';
 import dropdownStyles from './styles';
 import useOnClickOutside from '../../../customHooks/useOnClickOutside';
-import { useDispatch, useSelector } from 'react-redux';
-import { setStoreData } from './utils';
+import { useSelector } from 'react-redux';
 import { getCurrentLocation } from '../../../store/selectors';
 
 const styles = dropdownStyles;
 
-function Dropdown({ items, title }: DropdownProps) {
+function Dropdown({ items, title, onItemSelect }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [triggerText, setTriggerText] = useState(title);
   const selectRef = useRef<HTMLDivElement>(null);
   const currentLocation = useSelector(getCurrentLocation);
-  const dispatch = useDispatch();
 
   const memoizedHandler = useCallback(() => setIsOpen(false), []);
   useOnClickOutside(selectRef, memoizedHandler);
@@ -22,7 +20,7 @@ function Dropdown({ items, title }: DropdownProps) {
   const onItemClick = (item: Item) => {
     setTriggerText(item.label);
     setIsOpen(false);
-    setStoreData(item, dispatch);
+    onItemSelect(item);
   };
 
   const renderOptions = () => (

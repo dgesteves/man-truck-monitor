@@ -5,7 +5,6 @@ import startPosition from '../../assets/start-location.png';
 import { containerStyle, darkTheme, lightTheme } from './styles';
 import { ERROR_VEHICLE_NOT_FOUND, KEY } from '../../constants';
 import PointsOfInterest from './PointsOfInterest';
-import { mapOptions } from './utils';
 import {
   getCurrentLocation,
   getIsLightTheme,
@@ -19,6 +18,15 @@ import PathToNearPOI from './PathToNearPOI';
 import CustomInfo from './CustomInfo';
 import Message from '../common/Message';
 import { Location } from '../../types';
+
+const mapOptions = {
+  disableDefaultUI: true,
+  zoomControl: true,
+  zoomControlOptions: {
+    position: 3,
+    style: 1 as google.maps.ZoomControlStyle.SMALL,
+  },
+};
 
 function Map() {
   const isLightTheme = useSelector(getIsLightTheme);

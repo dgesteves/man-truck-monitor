@@ -1,7 +1,7 @@
 import { CombinedState, combineReducers } from 'redux';
-import mapReducer from './mapReducer';
+import { mapReducer } from './mapReducer';
 import { AppCombinedState } from '../types';
-import navReducer from './navReducer';
+import { navReducer } from './navReducer';
 
 export default combineReducers<CombinedState<AppCombinedState>>({
   map: mapReducer,

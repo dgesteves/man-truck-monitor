@@ -64,7 +64,6 @@ export type MyThunkAction = ThunkAction<
 >;
 
 export interface MapState {
-  isLightTheme: boolean;
   places: Place[] | null;
   currentLocation: Location | null;
   startLocation: Location | null;
@@ -73,6 +72,7 @@ export interface MapState {
 }
 
 export interface NavState {
+  isLightTheme: boolean;
   POIType: POI | null;
   radius: number | null;
 }

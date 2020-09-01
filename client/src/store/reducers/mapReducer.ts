@@ -3,14 +3,12 @@ import {
   MyAction,
   SET_CURRENT_LOCATION,
   SET_DISTANCE,
-  SET_IS_LIGHT_THEME,
   SET_PATH_LOCATIONS,
   SET_PLACES,
   SET_START_LOCATION,
 } from '../types';
 
-const INITIAL_STATE: MapState = {
-  isLightTheme: true,
+export const MAP_INITIAL_STATE: MapState = {
   places: null,
   currentLocation: null,
   startLocation: null,
@@ -18,13 +16,11 @@ const INITIAL_STATE: MapState = {
   distance: null,
 };
 
-export default (state = INITIAL_STATE, { type, payload }: MyAction) => {
+export const mapReducer = (
+  state = MAP_INITIAL_STATE,
+  { type, payload }: MyAction
+) => {
   switch (type) {
-    case SET_IS_LIGHT_THEME:
-      return {
-        ...state,
-        isLightTheme: payload,
-      };
     case SET_PLACES:
       return {
         ...state,

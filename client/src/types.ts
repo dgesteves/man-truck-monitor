@@ -1,5 +1,11 @@
 export interface AsyncSearchProps {
   placeholder: string;
+  onDebounceChange: (debounceTerm: string) => void;
+}
+
+export interface ButtonProps {
+  text: string;
+  onClick: () => void;
 }
 
 export interface MessageProps {
@@ -9,6 +15,7 @@ export interface MessageProps {
 export interface DropdownProps {
   title: string;
   items: Item[];
+  onItemSelect: (item: Item) => void;
 }
 
 export interface Location {

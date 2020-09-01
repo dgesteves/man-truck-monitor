@@ -32,7 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env CI=true react-scripts test",
+    "test": "react-scripts test",
+    "test:stage": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier 'src/**/*.{ts,tsx,js}' --write",
     "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx}'"
@@ -45,16 +46,18 @@
       "react-app",
       "prettier"
     ],
-    "plugins": ["prettier"],
+    "plugins": [
+      "prettier"
+    ],
     "rules": {
       "prettier/prettier": "error"
     }
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "src/**/*.{ts,tsx,js,jsx}": [
       "eslint --fix",
       "prettier --write",
-      "npm run test"
+      "npm run test:stage"
     ]
   },
   "husky": {
