@@ -1,6 +1,6 @@
 import { Item } from './types';
 
-export const KEY = 'AIzaSyCh7RfI5X_1m0xYwR6kTGomTZT4QZrbrbY';
+export const KEY = 'YOUR_API_KEY_GOES_HERE';
 export const PROXY_SERVER = 'https://cors-anywhere.herokuapp.com/';
 export const PLACES_BASE_URL =
   'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
